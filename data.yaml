@@ -4,10 +4,10 @@ env:
   - envName: mae-env
     configMapName: myconfigmap
     refKey: myconfigmapkey-1
-  - envName: jeremy-env
+  - envName: jeremy-env-1
     secretName: mysecret
     refKey: mysecretkey-1
-  - envName: jeremy-env
+  - envName: jeremy-env-2
     secretName: mysecret
     refKey: mysecretkey-2
 
