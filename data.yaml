@@ -1,0 +1,37 @@
+#@data/values
+---
+env:
+  - envName: mae-env
+    configMapName: myconfigmap
+    refKey: myconfigmapkey-1
+  - envName: jeremy-env
+    secretName: mysecret
+    refKey: mysecretkey-1
+  - envName: jeremy-env
+    secretName: mysecret
+    refKey: mysecretkey-2
+
+  
+application:
+  name: testing
+  groupId: com.testing
+  artifactId: testing
+  artifactVersion: 1.0.1
+  artifactType: jar
+  
+labels:
+  app.kubernetes.io/part-of: sample-app
+  apps.tanzu.vmware.com/workload-type: web
+  
+resources:
+  limits:
+    cpu: "2000m"
+    memory: "4Gi"
+  requests:
+    cpu: "2000m"
+    memory: "4Gi"
+      
+maven:
+  artifactId: demo
+  groupId: com.example
+  version: 0.0.2-SNAPSHOT

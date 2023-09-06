@@ -1,0 +1,31 @@
+#@ load("@ytt:data", "data")
+
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  labels: #@ data.values.labels
+  name: sample-app
+  namespace: jeremy
+spec:
+  params:
+    - name: maven
+      value: #@ data.values.maven
+  resources: 
+    limits: #@ data.values.resources.limits
+    requests: #@ data.values.resources.requests
+  env:
+  
+  #@ for var in data.values.env:
+  - name: #@ var.envName
+    valueFrom:
+      #@ if hasattr(var, "configMapName"):
+      configMapKeyRef:
+        name: #@ var.configMapName
+        key: #@ var.refKey
+      #@ end
+      #@ if hasattr(var, "secretName"):
+      secretKeyRef:
+        name: #@ var.secretName
+        key: #@ var.refKey
+      #@ end
+  #@ end
