@@ -11,11 +11,9 @@ env:
     secretName: mysecret
     refKey: mysecretkey-2
 
-  
 application:
   name: testing
 
-  
 labels:
   app.kubernetes.io/part-of: sample-app
   apps.tanzu.vmware.com/workload-type: web
