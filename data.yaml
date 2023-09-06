@@ -14,10 +14,7 @@ env:
   
 application:
   name: testing
-  groupId: com.testing
-  artifactId: testing
-  artifactVersion: 1.0.1
-  artifactType: jar
+
   
 labels:
   app.kubernetes.io/part-of: sample-app
@@ -32,6 +29,7 @@ resources:
     memory: "4Gi"
       
 maven:
-  artifactId: demo
-  groupId: com.example
   version: 0.0.2-SNAPSHOT
+  groupId: com.testing
+  artifactId: testing
+  type: jar

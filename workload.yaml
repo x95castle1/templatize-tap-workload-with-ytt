@@ -4,7 +4,7 @@ apiVersion: carto.run/v1alpha1
 kind: Workload
 metadata:
   labels: #@ data.values.labels
-  name: sample-app
+  name: #@ data.values.application.name
   namespace: jeremy
 spec:
   params:
